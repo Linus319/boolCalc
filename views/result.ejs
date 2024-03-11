@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bool Calc</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="pb-2 mt-4 mb-2 border-bottom">
+            <h1>Bool Calc</h1>
+        </div>
+        <h1>Truth Table</h1>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <% for (let varName of varList) { %>
+                            <th><%= varName %></th>
+                        <% } %>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let row of truthTable) { %>
+                        <tr>
+                            <% for (let varName of varList) { %>
+                                <td><%= row[varName] ? 1 : 0 %></td>
+                            <% } %>
+                            <td><%= row['Result'] %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>
