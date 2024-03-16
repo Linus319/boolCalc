@@ -18,22 +18,19 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const exp = req.body.expression;
     const varList = parseVariables(exp);
+    console.log(varList);
     const truthTable = generateTruthTable(varList, exp);
     res.render('result', {truthTable, varList});
 });
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
-function parseVariables(expression) {
-    // Tokenize the expression by splitting it using regex
-    const tokens = expression.match(/[a-zA-Z]+/g);
-    if (!tokens) return []; // No variables found
-    
-    // Filter unique variables
-    const variables = [...new Set(tokens)];
-    
-    return variables;
+function parseVariables(exp) {
+    result = exp.split(/[^A-Za-z]/);
+    return result;
 }
+
+
 
 function generateTruthTable(varList, expression) {
     const table = [];
